@@ -10,7 +10,7 @@ Clone the project
   cd php-crud-simple
 ```
 
-Lancer le fichier dump.sql dans votre base de données
+Importer le fichier dump.sql dans votre base de données
 
 ## Deployment
 
