@@ -1,7 +1,5 @@
 <?php
 
-require_once './vendor/autoload.php';
-
 $host = '127.0.0.1';
 $dbName = 'php-pagination';
 $port = 8889;
@@ -24,8 +22,8 @@ $pages = ceil($nbProduct / $productPerPage);
 $statement = $pdo->prepare('SELECT * FROM products LIMIT :productPerPage OFFSET :offset');
 $statement->bindValue(':productPerPage', $productPerPage, PDO::PARAM_INT);
 $statement->bindValue(':offset', $productPerPage * ($currentPage - 1), PDO::PARAM_INT);
-
 $statement->execute();
+
 $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -80,7 +78,9 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
         </li>
 
         <?php for ($i = max(1, min($currentPage - 2, $pages - 4)); $i <= min(max($currentPage + 2, 5), $pages); $i++) : ?>
-            <li class="page-item <?php if ($currentPage == $i) { echo 'active'; } ?>">
+            <li class="page-item <?php if ($currentPage == $i) {
+                                        echo 'active';
+                                    } ?>">
                 <a class="page-link" href="index.php?page=<?= $i ?>" <?= $i == $currentPage ? 'class="active"' : '' ?>><?= $i ?></a>
             </li>
         <?php endfor ?>
