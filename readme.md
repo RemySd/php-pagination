@@ -20,4 +20,4 @@ To deploy this project run
   php -S localhost:8000 -t .
 ```
 
-how go to http://localhost:8000/
+Go to http://localhost:8000/
